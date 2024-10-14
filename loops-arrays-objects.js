@@ -15,6 +15,12 @@ const scores = [
 // 92
 // 66
 // ==========================================
+for (let i = 0; i < scores.length; i++) {
+
+        console.log(scores[i].score );
+
+}
+
 
 
 
@@ -33,6 +39,30 @@ const scores = [
 // ==========================================
 
 
+for (let i = 0; i < scores.length; i++) {
+    if (scores[i].score < 60){
+        scores[i].grade = "F";
+    } else{
+        if (scores[i].score < 70){
+            scores[i].grade = "D";
+        } else {
+            if (scores[i].score < 80){
+                scores[i].grade = "C";
+            } else {
+                if (scores[i].score < 90){
+                    scores[i].grade = "B";
+                } else {
+                    if (scores[i].score < 100){
+                        scores[i].grade = "A";
+                    }
+                }
+            }
+        }
+    }
+    console.log(scores[i].grade );
+
+}
+
 
 
 
@@ -49,8 +79,7 @@ const scores = [
 //  ];
 // ==========================================
 
-
-
+console.log(scores)
 
 
 // ==========================================
@@ -63,6 +92,16 @@ const NOVIEmployees = [
     {firstName: 'Tessa', lastName: 'Steur'},
     {firstName: 'Mark', lastName: 'Rensen'},
 ];
+const domain = 'novi.nl';
+
+for (let i = 0; i < NOVIEmployees.length; i++) {
+    const employee = NOVIEmployees[i];
+
+    employee.email = `${employee.firstName}.${employee.lastName}@${domain}`;
+}
+
+console.log(NOVIEmployees);
+
 
 // Bij NOVI horen de e-mailadressen altijd in het volgende format: voornaam.achternaam@novi.nl
 // Vóór het script zie je de originele objecten,
@@ -78,12 +117,17 @@ const NOVIEmployees = [
 
 
 
-
-
 // Opdracht 2-BONUS
 // Lukt het je om ervoor te zorgen dat alle e-mailadressen in lowercase letters komen te staan? Dit heb je nog niet geleerd, maar google is your best friend...
 // ==========================================
 
+for (let i = 0; i < NOVIEmployees.length; i++) {
+    const employee = NOVIEmployees[i];
+
+    employee.email = `${employee.firstName.toLowerCase()}.${employee.lastName.toLowerCase()}@${domain}`;
+}
+
+console.log(NOVIEmployees);
 
 
 
@@ -113,6 +157,26 @@ const students = [
     {name: 'Aicha', city: 'Utrecht', zipCode: '3514', neighborhood: null},
     {name: 'Karima', city: 'Utrecht', zipCode: '3531', neighborhood: null},
 ];
+
+const postcodeToNeighborhood = {
+    '3513': 'Pijlsweerd',
+    '3514': 'Vogelenbuurt',
+    '3512': 'Binnenstad',
+    '3531': 'Lombok',
+    '3572': 'Wittevrouwen',
+    '3581': 'Oudwijk',
+    '3583': 'Schildersbuurt',
+
+}
+
+for (let i = 0; i < students.length; i++) {
+
+    const student = students[i];
+    const zipCode = student.zipCode;
+    student.neighborhood = postcodeToNeighborhood[zipCode] ||'Onbekend';
+}
+
+console.log(students);
 
 // Verwachte uitkomsten:
 // [
